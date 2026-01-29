@@ -1,159 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For You 💌</title>
-
+  <title>Be My Valentine 💘</title>
   <style>
     body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(to bottom, #ffe6f0, #fff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-family: 'Arial', sans-serif;
-      overflow: hidden;
-    }
-
-    /* Floating hearts */
-    .heart {
-      position: absolute;
-      color: pink;
-      font-size: 20px;
-      animation: floatUp 6s infinite ease-in;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(100vh);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh);
-        opacity: 0;
-      }
-    }
-
-    /* Envelope */
-    .envelope {
-      width: 260px;
-      height: 180px;
-      background: white;
-      position: relative;
-      cursor: pointer;
-      border-radius: 6px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2;
-    }
-
-    .envelope-text {
-      color: #ff5c8a;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    /* Letter */
-    .letter {
-      position: absolute;
-      width: 300px;
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      background: linear-gradient(to bottom, #ffd6e8, #fff0f6);
       text-align: center;
-      display: none;
-      z-index: 3;
-      animation: slideUp 0.8s ease forwards;
+      padding: 60px;
     }
 
-    @keyframes slideUp {
-      from {
-        transform: translateY(100px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+    .card {
+      background: white;
+      padding: 40px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
 
-    .letter h2 {
-      color: #ff5c8a;
-    }
-
-    .hidden-line {
-      display: none;
-      margin-top: 15px;
+    h1 {
       color: #d6336c;
-      font-weight: bold;
     }
 
     button {
-      margin-top: 15px;
-      padding: 10px 20px;
+      margin: 15px;
+      padding: 12px 25px;
+      font-size: 18px;
       border: none;
-      border-radius: 20px;
-      background: #ff5c8a;
-      color: white;
-      font-size: 14px;
+      border-radius: 30px;
       cursor: pointer;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #adb5bd;
+      color: white;
+    }
+
+    .heart {
+      font-size: 80px;
+      margin-top: 20px;
+      display: none;
+      animation: pop 0.6s ease-in-out;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+
+    .love-text {
+      font-size: 24px;
+      color: #d6336c;
+      display: none;
+      margin-top: 10px;
     }
   </style>
 </head>
 
 <body>
+  <div class="card">
+    <h1>Hi baby 💗</h1>
+    <p>Will you please be my Valentine?</p>
 
-  <!-- Envelope -->
-  <div class="envelope" onclick="openLetter()">
-    <div class="envelope-text">Open me 💗</div>
-  </div>
+    <button class="yes" onclick="sayYes()">Yes 💖</button>
+    <button class="no" onclick="sayNo()">No 🙄</button>
 
-  <!-- Letter -->
-  <div class="letter" id="letter">
-    <h2>Hi my love 💕</h2>
-    <p>
-      I just wanted you to know how deeply loved you are.
-      Every moment with you feels safe, warm, and special.
-      You mean more to me than words can explain.
-    </p>
-
-    <button onclick="showMore()">Click for more 💖</button>
-
-    <div class="hidden-line" id="moreText">
-      I choose you. Today, tomorrow, always. ❤️
-    </div>
+    <div class="heart" id="heart">❤️</div>
+    <div class="love-text" id="loveText">I love you 💕</div>
   </div>
 
   <script>
-    function openLetter() {
-      document.querySelector('.envelope').style.display = 'none';
-      document.getElementById('letter').style.display = 'block';
+    function sayNo() {
+      alert("sorry that’s not a valid option🫠");
     }
 
-    function showMore() {
-      document.getElementById('moreText').style.display = 'block';
+    function sayYes() {
+      document.getElementById("heart").style.display = "block";
+      document.getElementById("loveText").style.display = "block";
     }
-
-    // Create floating hearts
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.innerHTML = '❤️';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = (15 + Math.random() * 20) + 'px';
-      heart.style.animationDuration = (4 + Math.random() * 4) + 's';
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
-    }
-
-    setInterval(createHeart, 400);
   </script>
-
 </body>
 </html>
