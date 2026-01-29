@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Be My Valentine 💘</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #ffd6e8, #fff0f6);
+      text-align: center;
+      padding: 60px;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      color: #d6336c;
+    }
+
+    button {
+      margin: 15px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #adb5bd;
+      color: white;
+    }
+
+    .heart {
+      font-size: 80px;
+      margin-top: 20px;
+      display: none;
+      animation: pop 0.6s ease-in-out;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+
+    .love-text {
+      font-size: 24px;
+      color: #d6336c;
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Hi baby 💗</h1>
+    <p>Will you please be my Valentine?</p>
+
+    <button class="yes" onclick="sayYes()">Yes 💖</button>
+    <button class="no" onclick="sayNo()">No 🙄</button>
+
+    <div class="heart" id="heart">❤️</div>
+    <div class="love-text" id="loveText">I love you 💕</div>
+  </div>
+
+  <script>
+    function sayNo() {
+      alert("sorry that’s not a valid option🫠");
+    }
+
+    function sayYes() {
+      document.getElementById("heart").style.display = "block";
+      document.getElementById("loveText").style.display = "block";
+    }
+  </script>
+</body>
+</html>
